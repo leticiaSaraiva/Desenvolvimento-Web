@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Restaurante</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#" id="titulo">Restaurante</a>
+
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/}">Início</a></li>
+					
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/cliente/formulario}">Registre-se</a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/logar}">Login</a></li>
+
+			</ul>
+		</div>
+
+	</nav>
+
+	<div class="formulario">
+		<h1>Formulário de cadastro</h1> 
+		<center><a th:href="@{/logar}" class="btn btn-outline-info">Já sou cadastrado</a></center>
+		<br>
+		<br>
+		
+		<form action="/cliente/salvar" method="post" th:object="${cliente}">
+		
+			<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+				<span th:text="${mensagem}"></span>
+			</div>
+			
+			<input type="hidden" th:field="*{codigo}">
+
+			<div class="form-group">
+				<label>Nome</label> 
+				<input type="text" class="form-control" th:field="*{nome}">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+				<span th:errors="*{nome}"></span>
+			</div>
+
+			<div class="form-group">
+				<label>CPF</label> 
+				<input type="text" id="cpf" class="form-control" th:field="*{cpf}">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">
+				<span th:errors="*{cpf}"></span>
+			</div>
+
+			<div class="form-group">
+				<label>Data de nascimento</label> 
+				<input type="text" id="data" class="form-control" th:field="*{dataNasc}">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('dataNasc')}" >
+				<span th:errors="*{dataNasc}"></span>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label>Rua</label> 
+					<input type="text" class="form-control" th:field="*{rua}">
+				</div>
+				
+				<div class="form-group col-md-2">
+					<label>Número</label> 
+					<input type="text" class="form-control" th:field="*{numero}">
+				</div>
+				
+				<div class="form-group col-md-4">
+					<label>Bairro</label> 
+					<input type="text" class="form-control" th:field="*{bairro}">
+				</div>
+			</div>
+			
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('rua')}">
+						<span th:errors="*{rua}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-2">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('numero')}">
+						<span th:errors="*{numero}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-4">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('bairro')}">
+						<span th:errors="*{bairro}"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">E-mail</label> 
+				<input type="email" class="form-control" th:field="*{email}" id="exampleInputEmail1" aria-describedby="emailHelp">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" >
+				<span th:errors="*{email}"></span>
+			</div>
+			
+			<div class="form-group">
+				<label>Nome de usuário</label>
+				<input type="text" class="form-control" th:field="*{login}">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('login')}">
+				<span th:errors="*{login}"></span>
+			</div>
+			
+			<div class="form-group">
+				<label for="exampleInputPassword1">Senha</label> 
+				<input type="password" class="form-control" th:field="*{senha}" id="exampleInputPassword1">
+			</div>
+			<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('senha')}">
+				<span th:errors="*{senha}"></span>
+			</div>
+			
+			<br> <input type="submit" value="Cadastrar" class="btn btn-primary"> 
+				<input type="reset" value="Limpar" class="btn btn-secondary">
+			<br> <br> <br>
+
+		</form>
+	</div>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/script.js"></script>
+	<script src="/js/jquery.mask.min.js"/></script>
+  	<script src="/js/jquery-ui.js"></script>
+</body>
+</html>

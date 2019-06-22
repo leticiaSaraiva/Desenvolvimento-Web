@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Restaurante</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#" id="titulo">Restaurante</a>
+
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/}">Início</a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/carrinho/}">Carrinho de compras</a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/logout}">Sair</a></li>
+
+			</ul>
+		</div>
+
+	</nav>
+
+	<br>
+	<h1>Itens do pedido</h1>
+	<center><a th:href="@{/pedido/listar}" class="btn btn-outline-info">Voltar para o histórico de pedidos</a></center>
+	<br>
+	<br>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Prato</th>
+				<th>Quantidade</th>
+				<th>Preço</th>
+			</tr>
+		</thead>
+		<tr th:each="item: ${listaItens}">
+			<td th:text="${item.prato.nome}"></td>
+			<td th:text="${item.quantidade}"></td>
+			<td th:text="${'R$ ' + item.valor}"></td>
+		</tr>
+	</table>
+</body>
+</html>

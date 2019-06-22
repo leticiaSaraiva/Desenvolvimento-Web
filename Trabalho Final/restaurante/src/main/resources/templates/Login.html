@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Restaurante</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#" id="titulo">Restaurante</a>
+
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/}">Início</a></li>
+					
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/cliente/formulario}">Registre-se</a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/logar}">Login</a></li>
+
+			</ul>
+		</div>
+
+	</nav>
+	
+	<div class="formLogin">
+		<h1>Login</h1>
+		<center><a th:href="@{/cliente/formulario}" class="btn btn-outline-info">Não sou cadastrado</a></center>
+		<br>
+		<br>
+		
+		<form method="POST">
+			<div class="form-group">
+				Usuário <input type="text" name="username" class="form-control"> <br>
+			</div>
+			<div class="form-group">
+				Senha <input type="password" name="password" class="form-control"> <br>
+			</div>
+			
+			<input type="submit" value="Login" class="btn btn-primary"> 
+			<input type="reset" value="Limpar" class="btn btn-secondary">
+			<br>
+			
+		</form>
+	</div>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!-- Página Formulário para contato -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sabores do Sertão</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" media="screen" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="icon" href="img/logo.jpg" type="image/x-icon" />
+	<link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon" />
+</head>
+<body>
+	<header>
+		<!-- Conteúdo do cabeçalho -->
+		<nav class="cabecalho">
+			<ul class="menu">
+				<li><a href="index.html">Início</a></li>
+				<li><a href="galeriaPratos.html">Pratos</a></li>
+				<li><a href="formularioContato.html">Contato</a></li>
+				<li><a href="sobre.html">Sobre</a></li>
+			</ul>
+		</nav>	
+	</header>
+	<section id="main">
+		<!-- Conteúdo principal -->
+		<h1> Formulário para contato </h1>
+		<br> <br>
+		<div class="tituloP">
+			<span>Contate-nos</span>
+		</div>
+		<br> <br>
+
+		<div class="formularioContato">
+			<form id="formCont">
+				Nome <br>
+				<input type="text" id="nome" placeholder="Ex.: Maria" required="required"> <br> <br>
+				E-mail <br>
+				<input type="text" id="email" placeholder="Ex.: sabores@restaurante.com" required="required"> <br> <br>
+				Telefone <br>
+				<input type="text" id="telefone" placeholder="(99) 9 9999-9999" maxlength="11" required="required"> <br> <br>
+				Assunto <br>
+				<input type="text" id="assunto" required="required"> <br> <br>
+				Mensagem <br>
+				<textarea id="mensagemArea">
+					
+				</textarea>
+				<br> <br>
+
+				<input type="submit" value="Enviar" id="btEnviar">
+
+				<br> <br>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<!-- Conteúdo do rodapé -->
+		<p> Tel.: (88) 3232-9599 <br> <br>
+		© COPYRIGHT 2019 <br>
+		Letícia Saraiva Chaves </p>
+	</footer>
+		
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+  	<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+</body>
+</html>

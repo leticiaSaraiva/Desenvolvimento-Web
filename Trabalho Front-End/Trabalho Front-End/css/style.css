@@ -1,0 +1,321 @@
+*{margin: 0; padding: 0;}
+
+body{
+	background-color: #F5DEB3;
+	color: #8B4513;
+	font-family: "Avantgarde", "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+}
+
+.menu{
+	position: fixed;
+	top: 0;
+	font-size: 25px;
+	background: #CD6839;
+	list-style:none; 
+	width: 100%;
+	height: 80px;
+	z-index: 1;
+}
+.menu li{
+	position:relative; 
+	float:left;
+	width: 25%;
+	text-align: center;
+}
+.menu li a{
+	color: white; 
+	text-decoration: none; 
+	padding: 25px 10px; 
+	display: block;
+}
+
+.menu li a:hover{
+	color: black;  	 
+}
+
+footer{
+	position: relative;
+    bottom:0;
+    left:0;
+	width: 100%;
+	height: 100px;
+	background: #CD6839;
+	color: white;
+	clear: both;
+}
+footer p{
+	text-align: center;
+	padding-top: 15px;
+}
+
+
+h1{
+	text-align: center;
+	margin-top: 10px;
+	font-size: 40px;
+
+}
+#main{
+	padding-top: 100px;
+	margin-bottom: 40px;
+	
+	
+}
+
+.apresentacao{
+	padding-top: 20px;
+	text-align: center;
+
+}
+.apresentacao h2{
+	padding-top: 20px;
+}
+hr{
+	border: 1px solid #8B4513;
+}
+
+div.tituloP {
+	height: 4px;
+	background-color: #8B4513;
+	text-align: center;
+}
+div.tituloP span {
+	background-color: #F5DEB3;
+	position: relative;
+	top: -0.5em;
+	padding: 0 10px;
+	font-size: 24px;
+}
+
+.pratos{
+	display: inline;
+}
+.pratos img{
+	height: 40%;
+	position:relative; 
+	float:right;
+	width: 30%;
+	padding: 10px 20px;
+}
+.pratos tr td img{
+	height: 250px;
+	width: 400px;
+}
+.pratos tr td{
+	text-align: center;
+}
+.pratos tr td p{
+	padding-bottom: 15px;
+}
+
+.pratosCasa{
+	display: inline;
+}
+.pratosCasa img{
+	height: 40%;
+	position:relative; 
+	float:right;
+	width: 30%;
+	padding: 10px 20px;
+}
+.pratosCasa tr td img{
+	height: 350px;
+	width: 600px;
+}
+.pratosCasa tr td{
+	text-align: center;
+}
+.pratosCasa tr td p{
+	padding-bottom: 15px;
+}
+.verMaisPratos{
+	display:none;
+}
+#verMais{
+	background-color: #CD6839; 
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+#verMais span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+#verMais span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -15px;
+	transition: 0.5s;
+}
+
+#verMais:hover span {
+	padding-right: 20px;
+}
+
+#verMais:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+#apresentacaoSobre{
+	text-align: center;
+}
+
+#logoRestaurante{
+	margin-top: 30px;
+	
+}
+#logoRestaurante img{
+	height: 300px;
+	width: 300px;
+}
+a{
+	color: #8B4513;
+}
+#textoRestaurante{
+	font-size: 23px;
+}
+
+.formularioContato{
+	text-align: center;
+	font-size: 20px;
+}
+#dialog{
+	text-align: center;
+	font-size: 25px;
+}
+input[type=text] {
+	border: 2px solid #CD6839;
+	border-radius: 4px;
+	font-size: 20px;
+	width: 500px;
+	height: 40px;
+	background-color: #F5DEC0;
+}
+input[type=tel] {
+	border: 2px solid #CD6839;
+	border-radius: 4px;
+	font-size: 20px;
+	width: 500px;
+	height: 40px;
+	background-color: #F5DEC0;
+}
+
+textarea{
+	border: 2px solid #CD6839;
+	border-radius: 4px;
+	font-size: 20px;
+	width: 500px;
+	height: 100px;
+	background-color: #F5DEC0;
+}
+#btEnviar{
+	background-color: #CD6839; 
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+
+}
+/*---- Layout responsivo ----*/
+
+@media screen and (max-width: 870px) {
+	.menu{
+		font-size: 15px;
+		height: 50px;
+	}
+	footer{
+		height: 70px;
+		font-size: 10px;
+	}
+	footer p{
+		padding-top: 10px;
+	}
+	h1{
+		margin-top: -15px;
+		font-size: 30px;
+	}
+	.menu li a{
+		padding: 15px 5px; 
+	}
+	div.tituloP span {
+		top: -0.5em;
+		padding: 0 10px;
+		font-size: 20px;
+	}
+	
+	.pratos tr td img{
+		height: 90px;
+		width: 150px;
+	}
+	.pratos tr td{
+		font-size: 10px;
+		width: 160px;
+	}
+	.pratosCasa tr td img{
+		height: 230px;
+		width: 280px;
+	}
+	.pratosCasa tr td{
+		font-size: 13px;
+	}
+	#verMais{
+		font-size: 13px;
+		padding: 11px 25px;
+	}
+	#logoRestaurante{
+		margin-top: 10px;
+	}
+	#logoRestaurante img{
+		height: 150px;
+		width: 150px;
+	}
+	#textoRestaurante{
+		font-size: 16px;
+	}
+	.formularioContato{
+		font-size: 17px;
+	}
+	input[type=text] {
+		font-size: 17px;
+		width: 400px;
+		height: 30px;
+
+	}
+	input[type=tel] {
+		font-size: 17px;
+		width: 400px;
+		height: 30px;
+	}
+
+	textarea{
+		font-size: 17px;
+		width: 400px;
+		height: 100px;
+	}
+	#btEnviar{
+		padding: 10px 15px;
+		font-size: 12px;
+		margin: 2px 1px;
+		width: 100px;
+
+	}
+}
+
+
