@@ -42,20 +42,21 @@
 					<th>Preço</th>
 					<th>Quantidade</th>
 					<th>Total</th>
-					<th></th>
 				</tr>
 			</thead>
 
 			<tr th:each="item: ${session.carrinho}">
 				<td th:text="${item.prato.nome}"></td>
 				<td th:text="${'R$ ' + item.prato.preco}"></td>
-				<td th:text="${item.quantidade}"></td>
-				<td th:text="${'R$ ' + item.quantidade * item.prato.preco}"></td>
-				<td><a th:href="@{/carrinho/adicionar/{id}(id = ${item.prato.codigo})}" class="btn">
+				<td>
+					<a th:href="@{/carrinho/adicionar/{id}(id = ${item.prato.codigo})}" class="btn btn-outline-success">
 						+
-				</a> <a th:href="@{/carrinho/remove/{id}(id = ${item.prato.codigo})}" class="btn">
-						-
-				</a></td>
+					</a> <span th:text="${item.quantidade}"></span> 
+					<a th:href="@{/carrinho/remove/{id}(id = ${item.prato.codigo})}" class="btn btn-outline-danger">
+						 -  
+					</a>
+				</td>
+				<td th:text="${'R$ ' + item.quantidade * item.prato.preco}"></td>
 			<tr/>
 			
 		</table>
