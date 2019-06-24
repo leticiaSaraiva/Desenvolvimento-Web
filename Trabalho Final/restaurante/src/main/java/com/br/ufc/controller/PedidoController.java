@@ -54,11 +54,15 @@ public class PedidoController {
         }
 
         itemPedidoService.salvar(carrinho);
-
+        
+        total = (double) session.getAttribute("total");
+        
         pedido.setTotal(total);
         pedidoService.salvar(pedido); 
-                
 
+        session.removeAttribute("carrinho");
+        session.removeAttribute("total");
+        
         ModelAndView mv = new ModelAndView("redirect:/pedido/listar");
         return mv;
     }
