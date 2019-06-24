@@ -23,7 +23,6 @@ public class ClienteService {
 	
 	public void cadastrar(Cliente cliente) {
 		
-		cliente.setCpf(cliente.getCpf().replaceAll("\\.", "").replaceAll("\\-",""));
         cliente.setSenha(new BCryptPasswordEncoder().encode(cliente.getSenha()));
 
         Role role = roleRepo.findByPapel("ROLE_USER");
@@ -35,8 +34,8 @@ public class ClienteService {
         clienteRepo.save(cliente);
 	}
 	
-	public Cliente buscarPorCpf(String cpf) {
-        return clienteRepo.findByCpf(cpf);
+	public Cliente buscarPorLogin(String login) {
+        return clienteRepo.findByLogin(login);
     }
 	
 //	public List<Visitante> listarTodos(){

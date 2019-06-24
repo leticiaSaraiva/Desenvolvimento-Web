@@ -12,4 +12,6 @@ import com.br.ufc.model.Pedido;
 @Repository
 public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long> {
     List<ItemPedido> findByPedido(Pedido pedido);
+    
+    
 }

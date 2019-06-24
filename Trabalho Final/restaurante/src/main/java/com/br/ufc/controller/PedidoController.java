@@ -41,15 +41,14 @@ public class PedidoController {
         Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails user = (UserDetails) auth;
 
-        Cliente cliente = clienteService.buscarPorCpf(user.getUsername());
+        Cliente cliente = clienteService.buscarPorLogin(user.getUsername());
 
         pedido.setCliente(cliente);
         pedido.setTotal(0.0);
         pedidoService.salvar(pedido);
 
-        Double total = 0.0;
+        double total = 0.0;
         for (ItemPedido item : carrinho) {
-
             item.setPedido(pedido);
             total += item.getValor() * item.getQuantidade();
         }
@@ -58,6 +57,7 @@ public class PedidoController {
 
         pedido.setTotal(total);
         pedidoService.salvar(pedido); 
+                
 
         ModelAndView mv = new ModelAndView("redirect:/pedido/listar");
         return mv;
@@ -69,9 +69,9 @@ public class PedidoController {
         Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDetails user = (UserDetails) auth;
 
-        Cliente cliente = clienteService.buscarPorCpf(user.getUsername());
+        Cliente cliente = clienteService.buscarPorLogin(user.getUsername());
 
-        List<Pedido> listaPedidos = pedidoService.listarPorCliente(cliente);
+        List<Pedido> listaPedidos = pedidoService.encontrarCliente(cliente);
 
         ModelAndView mv = new ModelAndView("HistoricoPedidos");
         mv.addObject("listaPedidos", listaPedidos);

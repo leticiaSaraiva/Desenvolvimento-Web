@@ -10,5 +10,7 @@ import com.br.ufc.model.Pedido;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
-    List<Pedido> findByClienteOrderByDataPedidoDesc(Cliente cliente);
+	List<Pedido> findByCliente(Cliente cliente);
+
+	
 }

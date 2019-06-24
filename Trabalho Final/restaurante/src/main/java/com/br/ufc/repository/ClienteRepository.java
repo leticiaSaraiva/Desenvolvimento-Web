@@ -8,6 +8,5 @@ import com.br.ufc.model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	Cliente findByLogin(String username);
-	
-	Cliente findByCpf(String cpf);
+
 }

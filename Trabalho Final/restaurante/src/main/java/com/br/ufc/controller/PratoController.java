@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.ufc.model.Prato;
 import com.br.ufc.model.Cliente;
@@ -33,15 +34,15 @@ public class PratoController {
 	}
 	
 	@PostMapping("/salvar")
-	public ModelAndView salvar(@Validated Prato prato, BindingResult result, @RequestParam(value="imagem") MultipartFile imagem) {
+	public ModelAndView salvar(@Validated Prato prato, BindingResult result, RedirectAttributes atributes , @RequestParam(value="imagem") MultipartFile imagem) {
 		
-		ModelAndView mv = new ModelAndView("FormularioPrato");
+		ModelAndView mv = new ModelAndView("redirect:/prato/formularioPrato");
 		
 		if(result.hasErrors() || imagem == null) {
 			return form(prato);
 		}
 		
-		mv.addObject("mensagem", "Cadastro realizado com sucesso!");
+		atributes.addFlashAttribute("mensagem", "Cadastro realizado com sucesso!");
 		
 		pratoService.cadastrar(prato, imagem);
 		

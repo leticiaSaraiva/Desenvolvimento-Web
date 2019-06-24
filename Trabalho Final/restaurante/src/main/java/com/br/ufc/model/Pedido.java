@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -28,14 +29,12 @@ public class Pedido {
     @Temporal(TemporalType.DATE)
     private Date dataPedido = new java.sql.Date(System.currentTimeMillis());
 
-    //@NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
-    //@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
     private double total;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<ItemPedido> itens;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Cliente cliente;
 
 	public Long getCodigo() {

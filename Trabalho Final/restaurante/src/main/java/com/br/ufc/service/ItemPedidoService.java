@@ -28,10 +28,9 @@ public class ItemPedidoService {
         return itens;
     }
 
-    public ItemPedido criaItem(Long codigoPrato) {
-
+    public ItemPedido criaItem(Long codigoP) {
         ItemPedido item = new ItemPedido();
-        item.setPrato(pratoService.buscarPorId(codigoPrato));
+        item.setPrato(pratoService.buscarPorId(codigoP));
         item.setQuantidade(1);
         return item;
     }

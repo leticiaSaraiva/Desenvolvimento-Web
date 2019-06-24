@@ -49,11 +49,12 @@
 				<td th:text="${item.prato.nome}"></td>
 				<td th:text="${'R$ ' + item.prato.preco}"></td>
 				<td>
-					<a th:href="@{/carrinho/adicionar/{id}(id = ${item.prato.codigo})}" class="btn btn-outline-success">
-						+
-					</a> <span th:text="${item.quantidade}"></span> 
 					<a th:href="@{/carrinho/remove/{id}(id = ${item.prato.codigo})}" class="btn btn-outline-danger">
 						 -  
+					</a>
+					 <span th:text="${item.quantidade}"></span> 
+					<a th:href="@{/carrinho/adicionar/{id}(id = ${item.prato.codigo})}" class="btn btn-outline-success">
+						+
 					</a>
 				</td>
 				<td th:text="${'R$ ' + item.quantidade * item.prato.preco}"></td>

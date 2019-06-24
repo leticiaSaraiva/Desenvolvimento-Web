@@ -18,9 +18,11 @@ public class PedidoService {
     public void salvar(Pedido pedido) {
         pedidoRepository.save(pedido);
     }
+    
 
-    public List<Pedido> listarPorCliente(Cliente cliente) {
-        return pedidoRepository.findByClienteOrderByDataPedidoDesc(cliente);
+    public List<Pedido> encontrarCliente(Cliente cliente) {
+    	return pedidoRepository.findByCliente(cliente);    
+    	
     }
 
     public Pedido buscarPorID(Long codigo) {
@@ -30,5 +32,7 @@ public class PedidoService {
     public List<Pedido> listarTodos() {
         return pedidoRepository.findAll();
     }
+
+
 
 }

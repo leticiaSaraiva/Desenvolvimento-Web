@@ -61,7 +61,7 @@ public class Cliente implements UserDetails{
 	@Temporal(TemporalType.DATE)
 	private Date dataNasc;
 	
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Pedido> pedidos;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

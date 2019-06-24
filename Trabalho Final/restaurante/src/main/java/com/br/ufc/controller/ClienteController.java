@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.ufc.model.Cliente;
 import com.br.ufc.service.ClienteService;
@@ -28,15 +29,15 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/salvar")
-	public ModelAndView salvar(@Validated Cliente visitante, BindingResult result) {
+	public ModelAndView salvar(@Validated Cliente visitante, RedirectAttributes atributes, BindingResult result) {
 		
-		ModelAndView mv = new ModelAndView("Formulario");
+		ModelAndView mv = new ModelAndView("redirect:/cliente/formulario");
 		
 		if(result.hasErrors()) {
 			return form(visitante);
 		}
 		
-		mv.addObject("mensagem", "Cadastro realizado com sucesso!");
+		atributes.addFlashAttribute("mensagem", "Cadastro realizado com sucesso!");
 		
 		clienteService.cadastrar(visitante);
 		
